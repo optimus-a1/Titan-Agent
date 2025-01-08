@@ -29,6 +29,13 @@ sudo snap install multipass
 echo "验证 Multipass 安装..."
 multipass --version
 
+# 安装 unzip
+echo "检查并安装 unzip..."
+if ! command -v unzip &> /dev/null; then
+    echo "unzip 未安装，正在安装 unzip..."
+    sudo apt install -y unzip  # 对于 Ubuntu/Debian 系统
+fi
+
 # 安装 Titan Agent
 echo "下载并解压 Titan Agent 安装包..."
 wget https://pcdn.titannet.io/test4/bin/agent-linux.zip -O /tmp/agent-linux.zip
